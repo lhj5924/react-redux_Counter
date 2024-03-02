@@ -1,12 +1,10 @@
-import "./App.css"
 import { useSelector, useDispatch } from "react-redux"
 import { increment, decrement } from "./actions/index"
 import styled from "styled-components"
 
 function App() {
-  const count = useSelector((state) => state.count) // useSelector를 사용하여 Redux 스토어의 상태를 선택합니다.
-  const dispatch = useDispatch() // useDispatch를 사용하여 액션을 디스패치합니다.
-  console.log(count) // 왜 count 의 초기값이 counterReducer.js 에 정의한 0이 아니라 undefined 로 나오는거지?
+  const count = useSelector((state) => state.count)
+  const dispatch = useDispatch()
 
   return (
     <AppContainer>
@@ -15,9 +13,7 @@ function App() {
           Counter: <Count>{count}</Count>
         </Counter>
         <Button onClick={() => dispatch(increment())}>Increment</Button>{" "}
-        {/* Increment 액션을 디스패치하는 버튼 */}
         <Button onClick={() => dispatch(decrement())}>Decrement</Button>{" "}
-        {/* Decrement 액션을 디스패치하는 버튼 */}
         <P>Please check the console</P>
       </Container>
     </AppContainer>
